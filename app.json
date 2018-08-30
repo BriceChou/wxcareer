@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/player/player",
+    "pages/personal/personal",
+    "pages/class/class"
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "凯尔面试咨询",
+    "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "color": "#444444",
+    "selectedColor": "#ff5721",
+    "backgroundColor": "#fff",
+    "borderStyle": "#fff",
+    "list": [
+      {
+        "selectedIconPath": "pages/images/tabBar/starSelect.png",
+        "iconPath": "pages/images/tabBar/starBlur.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/images/tabBar/listenSelect.png",
+        "iconPath": "pages/images/tabBar/listenBlur.png",
+        "pagePath": "pages/class/class",
+        "text": "预约"
+      },
+      {
+        "selectedIconPath": "pages/images/tabBar/pauseSelect.png",
+        "iconPath": "pages/images/tabBar/pauseBlur.png",
+        "pagePath": "pages/player/player",
+        "text": "咨询",
+        "positon": "top",
+        "width": 600,
+        "height": 600
+      },
+      {
+        "selectedIconPath": "pages/images/tabBar/loginSelect.png",
+        "iconPath": "pages/images/tabBar/loginBlur.png",
+        "pagePath": "pages/personal/personal",
+        "text": "我的"
+      }
+    ]
+  }
+}

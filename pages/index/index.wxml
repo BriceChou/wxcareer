@@ -1,0 +1,399 @@
+<view class="warpper">
+    <view class="container">
+      <!-- Header -->
+      <!-- <view class="header">
+        <view class="login">首页</view>
+        <view class="input"><input type="text" placeholder="输入您的内容" class="search-input" style="text-indent: 10px;color:#333;" focus/></view>
+        <image src="../images/classify/timer.png" class="timer-image" style="width: 40rpx;height: 40rpx;"></image>
+        <image src="../images/classify/download.png" class="timer-image" style="width: 40rpx;height: 40rpx;"></image>
+      </view> -->
+
+      <!-- <view class="navbar">
+        <view class="classify" catchtap="handleChange" data-index="1">分类</view>
+        <view class="recommend" data-index="2" catchtap="handleChange">推荐</view>
+        <view data-index="3" catchtap="handleChange">精品</view>
+        <view class="borderBottomMove" style="left:{{navLeft}}rpx"></view>
+      </view> -->
+
+      <swiper class="swiper-warrper swiper-choice"  current="{{current}}" bindchange="pageChange">
+       <!-- classification -->
+        <swiper-item class="swiper-item1" catchChange="pageChange">
+            <scroll-view class="scroll-warpper" scroll-y="true">
+                <view class="warpperFirst">
+                    <view class="content">
+                      <view class="footer" style="height: 456rpx;">
+                        <swiper class="swiper"  autoplay="true" interval="4000" duration="400" style="height: 150px;">    
+                          <block wx:for="{{swiperCl}}" wx:for-index="index" wx:key="*this">    
+                            <swiper-item>
+                              <image src="{{item}}" class="slide-image" mode="aspectFill"/>    
+                            </swiper-item>
+                          </block>    
+                        </swiper>
+                      </view>
+                      <!-- list header -->
+                      <view class="list list-bottom">
+                        <view class="list-title">
+                          <image src="../images/classify/sound.png" class="icon"></image><text>直播课</text>
+                        </view>
+                        <view class="list-romance" url="/pages/personal/personal">礼仪</view>
+                        <view class="list-suspense">服装</view>
+                        <view class="list-urban">简历</view>
+                      </view>
+                      <view class="list list-bottom">
+                        <view class="list-title">
+                          <image src="../images/classify/book.png" class="icon"></image><text>畅销书</text>
+                        </view>
+                        <view class="list-romance">礼仪</view>
+                        <view class="list-suspense">简历</view>
+                        <view class="list-urban">规范</view>
+                      </view>
+                      <!-- details -->
+                      <view class="entertainment">
+                        <view class="sw-title">简历</view>
+                        <view class="sw-lists">
+                          <view class="sw-list">
+                            <view class="sw-list-title">
+                              <image src="../images/classify/music.png"  class="icon"></image><text>入门</text>
+                            </view>
+                            <view class="sw-list-title">
+                              <image src="../images/classify/Fan.png" class="icon"></image><text>初级</text>
+                            </view>
+                            <view class="sw-list-title">
+                              <image src="../images/classify/smell.png" class="icon" ></image><text>高级</text>
+                            </view>
+                          </view>
+                          <view class="sw-list">
+                            <view class="sw-list-title">
+                              <image src="../images/classify/news.png" class="icon" ></image><text>国企</text>
+                            </view>
+                            <view class="sw-list-title">
+                              <image src="../images/classify/quadratic.png" class="icon" ></image><text>欧美企业</text>
+                            </view>
+                            <view class="sw-list-title">
+                                <image src="../images/classify/mask.png" class="icon" ></image><text>日韩企业</text>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="entertainment">
+                        <view class="sw-title">礼仪</view>
+                        <view class="sw-lists">
+                            <view class="sw-list">
+                              <view class="sw-list-title">
+                                <image src="../images/classify/book1.png" class="icon" ></image><text>说话</text>
+                              </view>
+                              <view class="sw-list-title">
+                                <image src="../images/classify/money.png" class="icon" ></image><text>服装</text>
+                              </view>
+                              <view class="sw-list-title">
+                                <image src="../images/classify/brust.png" class="icon" ></image><text>准备</text>
+                              </view>
+                            </view>
+                        </view>
+                      </view>
+                      <view class="entertainment">
+                        <view class="sw-title">特色</view>
+                        <view class="sw-lists">
+                          <view class="sw-list">
+                            <view class="sw-list-title">
+                              <image src="../images/classify/gift.png" class="icon" ></image><text>付费精品</text>
+                            </view>
+                            <view class="sw-list-title">
+                              <image src="../images/classify/radioStation.png" class="icon" ></image><text>一对一辅导</text>
+                            </view>
+                            <view class="sw-list-title">
+                              <image src="../images/classify/cantonese.png" class="icon" ></image><text>粤语</text>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                </view>
+              </scroll-view>       
+        </swiper-item>
+
+         <!-- Recommend -->
+         <swiper-item class="swiper-item2">
+          <scroll-view class="scroll-warpper" scroll-y="true">
+            <view class="warpperFirst">
+              <view class="content">
+                <swiper class="swiper" autoplay="true" interval="4000" duration="400">    
+                  <block wx:for="{{swiperRe}}" wx:for-index="index" wx:key="*this">    
+                    <swiper-item>
+                      <image src="{{item}}" class="slide-image" mode="aspectFill"/>    
+                    </swiper-item>
+                  </block>
+                </swiper>
+                <!-- Main Data -->
+                <view class="choice-menu-warpper">
+                  <view class="choice-menu">
+                    <block wx:for="{{choiceIcon1}}" class="choice-menu__block" wx:for-item="item" wx:key="*this">
+                      <navigator class="menu-warpper__nav" url="{{item.navUrl}}">
+                        <view class="menu-image"  style="background-color:{{item.backgroundColor}}">
+                            <image src="{{item.imageUrl}}" class="icon2"></image>
+                        </view>
+                        <text>{{item.title}}</text>
+                      </navigator>
+                    </block>
+                  </view>
+                  <view class="choice-menu" style="border-bottom: 1rpx solid #f8f8f8">
+                      <block wx:for="{{choiceIcon2}}" class="choice-menu__block" wx:for-item="item" wx:key="*this">
+                        <navigator class="menu-warpper__nav" url="{{item.navUrl}}">
+                          <view class="menu-image" style="background-color:{{item.backgroundColor}}">
+                              <image src="{{item.imageUrl}}" class="icon2"></image>
+                          </view>
+                          <text style="">{{item.title}}</text>
+                        </navigator>
+                      </block>
+                  </view>
+                  <view class="choice-quickNew">
+                    <view class="quickNew">
+                      <image src="../images/recommend/快报.jpg" style="width:80%;height:80%;border-radius: 50%;margin-top:10rpx;"></image>
+                    </view>
+                    <view class="quickNewWarrper">
+                      <view class="quickNew-title" style="float: left;">大学生没有任何才能，为何能成为高管？</view>
+                      <view class="quickNew-more" style="float: right;">
+                        <image src="../images/recommend/更多.png" style="float: right;margin-right: 10rpx;width: 30rpx;height: 30rpx;margin-top:29rpx;border-radius: 50%;background-color: #e3e4e5;"></image>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <!-- guess what your like -->
+                <view class="choice-guess">
+                  <view class="guess-titleAll">
+                    <view class="guess-title">猜你喜欢</view>
+                    <view class="guess-images-click"><image src="../images/recommend/靶子.png" class="icon3"></image></view>
+                    <view class="guess-click"><text>点我猜更准</text></view>
+                    <view class="guess-more">更多</view>
+                  </view>
+                  <view class="guess-example">
+                    <view class="guess-example__warpper">
+                      <block wx:for="{{guessImg}}" wx:for-item="item" wx:key="*this">
+                        <navigator class="guess-images-warp" url="{{item.navUrl}}">
+                            <view class="guess-images">
+                              <image src="{{item.url}}" style="width: 100%;height: 100%;"></image>
+                            </view>
+                            <text>{{item.title}}</text>
+                        </navigator>                          
+                      </block>
+                      <view class="renovate"> 
+                        <image class="renovate-icon" src="../images/recommend/renovate.png"></image>
+                        <text>换一批</text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <!-- High Quality -->
+                <view class="FineQuality">
+                    <view class="guess-titleAll">
+                      <view class="guess-title">精品</view>
+                      <view class="guess-more">更多</view>
+                    </view>
+                    <view class="guess-example">
+                      <view class="guess-example__warpper">
+                        <block wx:for="{{3}}" wx:for-item="item" wx:key="*this">
+                          <navigator class="guess-images-warp" url="{{item.navUrl}}">
+                              <view class="guess-images">
+                                <image src="{{item.url}}" style="width: 100%;height: 100%;"></image>
+                                <view class="FineQualityBac">
+                                  <image class="FineQuality-icon" src="../images/recommend/皇冠.png"></image>
+                                </view>
+                              </view>
+                              <text>{{item.title}}</text>
+                              <text>{{item.detail}}</text>
+                          </navigator>                          
+                        </block>
+                        <view class="renovate"> 
+                          <image class="renovate-icon" src="../images/recommend/renovate.png"></image>
+                          <text>换一批</text>
+                        </view>
+                      </view>
+                    </view>
+                </view>
+
+                <!-- Most popluar book -->
+                <view class="hotBooks">
+                  <view class="guess-titleAll">
+                    <view class="guess-title">最热书籍</view>
+                    <view class="guess-more">更多</view>
+                  </view>
+                  <view class="hotBooks-classify">
+                    <view class="item">社交</view>
+                    <view class="item">礼仪</view>
+                    <view class="item">面试</view>
+                    <view class="item">简历</view>
+                  </view>
+                  <view class="hotBooks-lists">
+                    <view class="item">
+                      <view class="hotBooks-left__image">
+                        <image src="" style="border-radius: 15rpx;width: 120rpx;height: 120rpx;"></image>
+                      </view>
+                      <view class="hotBooks-right">
+                        <view class="hotBooks__title" style="color:#333;">包装由内而外</view>
+                        <view class="hotBooksF" style="color:#999;">学生，社会华丽丽的转身</view>
+                        <view class="detailS">
+                          <image src="../images/recommend/播放.png" class="play-icon"></image>
+                          <text>102万</text>
+                          <image src="../images/recommend/波形图.png" class="play-icon"></image>
+                          <text>622页</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="renovate"> 
+                      <image class="renovate-icon" src="../images/recommend/renovate.png"></image>
+                      <text>换一批</text>
+                    </view>
+                  </view>
+                </view>
+              
+                <!-- AD -->
+                <view class="choice-ad">
+                  <image src="../images/recommend/ad1.jpg"></image>
+                  <view>广告</view>
+                  <text>我是广告</text>
+                  <text>求你别点，有本事你就别点！</text>
+                </view>
+
+                <!-- Interviewer face to face -->
+                <view class="lazyRadio">
+                  <view class="guess-titleAll">
+                    <view class="guess-title">考官面对面</view>
+                    <view class="guess-more">更多</view>
+                  </view>
+                  <view class="lazyRadio-items">
+                    <view class="lazyRadio-item">
+                      <image src="../images/recommend/音乐.jpg" class="lazyRadioImg"></image>
+                      <image src="" class="lazyRadioImgPause"></image>
+                      <text>博士考官</text>
+                    </view>
+                    <view class="lazyRadio-item">
+                      <image src="../images/recommend/科技.jpg" class="lazyRadioImg"></image>
+                      <image src="" class="lazyRadioImgPause"></image>
+                      <text>硕士考官</text>
+                    </view>
+                    <view class="lazyRadio-item">
+                      <image src="../images/recommend/专注与睡眠.jpg" class="lazyRadioImg"></image>
+                      <image src="" class="lazyRadioImgPause"></image>
+                      <text>企业考官</text>
+                    </view>
+                  </view>
+                  <view class="renovate"> 
+                    <image class="renovate-icon" src="../images/recommend/renovate.png"></image>
+                    <text>换一批</text>
+                  </view>
+                </view>
+
+                <!-- Recommend for you -->
+                <view class="recommendFY">
+                  <view class="guess-titleAll">
+                    <view class="guess-title">为你推荐</view>
+                  </view>
+                  <view class="hotBooks-lists">
+                    <view class="item">
+                      <view class="hotBooks-left__image">
+                        <image src="" style="border-radius: 15rpx;width: 120rpx;height: 120rpx;"></image>
+                      </view>
+                      <view class="hotBooks-right">
+                        <view class="hotBooks__title" style="color:#333;">学校向社会的华丽转型</view>
+                        <view class="hotBooksF" style="color:#999;">我的成长之路，一路打Call！</view>
+                        <view class="detailS">
+                          <image src="../images/recommend/播放.png" class="play-icon"></image>
+                          <text>1112万</text>
+                          <image src="../images/recommend/波形图.png" class="play-icon"></image>
+                          <text>653页</text>
+                        </view>
+                      </view>
+                    </view>
+
+                    <view class="getMore" style="text-align: center;margin: 12rpx auto;font-size: 0.9em;height:180rpx;">
+                      <text>向上轻拉获取更多</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      <!-- Super Content -->
+        <swiper-item class="swiper-item2">
+          <scroll-view class="scroll-warpper" scroll-y="true">
+            <view class="warpperFirst">
+              <view class="content">
+                <swiper class="swiper" autoplay="true" interval="4000" duration="400">    
+                  <block wx:for="{{swiperRe}}" wx:for-index="index" wx:key="*this">    
+                    <swiper-item>
+                      <image src="{{item}}" class="slide-image" mode="aspectFill"/>    
+                    </swiper-item>
+                  </block>
+                </swiper>
+                <!-- Main Content -->
+                <view class="precision">
+                    <view class="scroll_box"> 
+                      <scroll-view class="scroll-view_x" scroll-x="true">
+                        <view class="item_list" wx:for="{{choiceIcon3}}" wx:for-item="item" wx:key="*this">
+                            <view class="menu-image" style="background-color:{{item.backgroundColor}};">
+                                <image src="{{item.imageUrl}}" class="icon2"></image>
+                            </view>
+                            <text>{{item.title}}</text>
+                        </view>
+                      </scroll-view>
+                    </view> 
+                </view>
+                <!-- Hot -->
+                <view class="FineQuality">
+                    <view class="guess-titleAll">
+                      <view class="guess-title">热门新品</view>
+                      <view class="guess-more">更多</view>
+                    </view>
+                    <view class="guess-example">
+                      <view class="guess-example__warpper">
+                        <block wx:for="{{3}}" wx:for-item="item" wx:key="*this">
+                          <navigator class="guess-images-warp" url="{{item.navUrl}}">
+                              <view class="guess-images">
+                                <image src="{{item.url}}" style="width: 100%;height: 100%;"></image>
+                              </view>
+                              <text>{{item.title}}</text>
+                              <text>{{item.detail}}</text>
+                          </navigator>                          
+                        </block>
+                        <view class="renovate"> 
+                          <image class="renovate-icon" src="../images/recommend/renovate.png"></image>
+                          <text>换一批</text>
+                        </view>
+                      </view>
+                    </view>
+                </view>
+
+                <!-- Free -->
+                <view class="FineQuality freeQualityGoods">
+                    <view class="guess-titleAll">
+                      <view class="guess-title">免费精品好课</view>
+                      <view class="guess-more">更多</view>
+                    </view>
+                    <view class="guess-example">
+                      <view class="guess-example__warpper">
+                        <block wx:for="{{3}}" wx:for-item="item" wx:key="*this">
+                          <navigator class="guess-images-warp" url="{{item.navUrl}}">
+                              <view class="guess-images">
+                                <image src="{{item.url}}" style="width: 100%;height: 100%;"></image>
+                                <view class="FineQualityBac">
+                                  <image class="FineQuality-icon" src="../images/recommend/皇冠.png"></image>
+                                </view>
+                              </view>
+                              <text class="FineQualityText1">199<text>RMB</text></text>
+                              <text class="FineQualityText2">会员免费</text>
+                          </navigator>                          
+                        </block>
+                      </view>
+                    </view>
+                </view>    
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  
